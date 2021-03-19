@@ -31,7 +31,7 @@ void permutation(double p[],double A[3][3],int k,int &ite){
 }
 
 void subst_sucessive_mod(int n,double A[3][3],double b[],double y[]){
-    double x[3];
+    double x[n];
     for(int i = 0 ; i<= n-1 ; i++){
         double soma = 0;
         for(int j = 0; j<=i-2; j++){
@@ -45,7 +45,7 @@ void subst_sucessive_mod(int n,double A[3][3],double b[],double y[]){
    
 }
 
-void subst_retroative(int n,double A[3][3], double b[]){
+void subst_retroative(int n,double A[3][3], double b[], double y[]){
     double x[n];
     x[n] = b[n] / A[n][n];
     for(int i = n-2; i >=0 ;i--){
@@ -54,6 +54,9 @@ void subst_retroative(int n,double A[3][3], double b[]){
             soma = soma + (A[i][j] * x[j]);
         }
         x[i] = (b[i] - soma)/A[i][i];
+    }
+    for(int i = 0; i<=2; i++){
+        y[i] = x[i];
     }
     
 }

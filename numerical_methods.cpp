@@ -41,6 +41,6 @@ void lu_pivot_parcial(int n, double A[3][3], double b){
     double y[n];
     subst_sucessive_mod(n,A,blin,y);
     double x[n];
-    subst_retroative(n,A,y);
+    subst_retroative(n,A,y,x);
         
 }
