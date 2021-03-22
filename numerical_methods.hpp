@@ -1,1 +1,2 @@
-void lu_pivot_parcial(int n, double A[3][3], double b);
+void LU(int n, double **A, double *b,double *x,double *y);
+void LDP(int n, double **A, double *b,double *x,double *y);
