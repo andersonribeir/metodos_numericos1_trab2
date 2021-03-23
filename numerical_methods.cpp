@@ -137,8 +137,21 @@ void LDP(int n, double **A, double *b, double *x, double *y)
         for (int j = 0; j < n; j++)
         {
             l[i][j] = A[i][j];
+            
         }
+        
     }
+    
+
+
+    double *u[n];
+    for (int i = 0; i < n; i++)
+    {
+        u[i] = new double[n];
+    }
+    i = 0, j = 0;
+
+   
 
     double p[n];
     for (int i = 0; i < n; i++)
@@ -167,7 +180,9 @@ void LDP(int n, double **A, double *b, double *x, double *y)
         {
 
             Permute(n, l, p, k, r);
+            
         }
+        
 
         for (int i = k + 1; i < n; i++)
         {
@@ -179,6 +194,15 @@ void LDP(int n, double **A, double *b, double *x, double *y)
             }
         }
     }
+    
+
+    // ================================================================================================================
+  
+
+
+    // ================================================================================================================
+    
+    
     double *D[n];
     for (int i = 0; i < n; i++)
     {
@@ -198,6 +222,12 @@ void LDP(int n, double **A, double *b, double *x, double *y)
         }
     }
 
+    
+
+    for(int a = 0; a<n; a++){
+                l[a][a] = 1;
+                
+            }
 
     double *P[n];
     for (int i = 0; i < n; i++)
@@ -219,44 +249,12 @@ void LDP(int n, double **A, double *b, double *x, double *y)
 
     }
     
-        
-       for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            std::cout << "[" << (float)P[i][j] << "]";
-            //std::cout << i << j << std::endl;
-        }
-        std::cout << std::endl;
-        
-    }
-
-    float tempU[3][3];
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            float num = 0;
-            for (int k = 0; k < 3; k++)
-            {
-                num += D[i][k] * P[k][j];
+        for(int a = 0; a<n ;a++){
+            for(int b=0;b<n;b++){
+                cout<<" "<<D[a][b]<<" ";
+                
             }
-
-            tempU[i][j] = num;
+            cout<<endl;
         }
-    }
-    for(int teste = 0; teste<n ;teste++){
-        for(int testecol = 0; testecol<n; testecol++){
-            cout<<"["<<tempU[teste][testecol]<<"]";
-
-        }
-           
-        cout<<endl;
-        
-    }
-
-    
- 
-    
     
 }
